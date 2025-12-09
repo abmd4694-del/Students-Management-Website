@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="page-header header-about">
+    <h1>About Us</h1>
+</div>
+
+<div class="container content-overlap">
+    <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+        <h2>Empowering Education</h2>
+        <p style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 2rem;">
+            EduManager is more than just a database. It's a comprehensive ecosystem designed to bridge the gap between administration, faculty, and students.
+        </p>
+    </div>
+    
+    <div class="feature-grid">
+        <div class="feature-item">
+            <i class="fas fa-shield-alt feature-icon"></i>
+            <h3>Secure</h3>
+            <p>Bank-grade data protection for all student records.</p>
+        </div>
+        <div class="feature-item">
+            <i class="fas fa-cloud feature-icon"></i>
+            <h3>Cloud Native</h3>
+            <p>Access your dashboard from anywhere in the world.</p>
+        </div>
+        <div class="feature-item">
+            <i class="fas fa-magic feature-icon"></i>
+            <h3>Automated</h3>
+            <p>Smart workflows to save your time.</p>
+        </div>
+        <div class="feature-item">
+            <i class="fas fa-headset feature-icon"></i>
+            <h3>Support</h3>
+            <p>24/7 dedicated support team for your institution.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

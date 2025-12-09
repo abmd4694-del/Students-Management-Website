@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="page-header header-contact">
+    <h1>Get in Touch</h1>
+</div>
+
+<div class="container content-overlap">
+    <div class="contact-grid">
+        <!-- Left Column: Form -->
+        <div>
+            <h2 style="margin-top: 0;">Send us a message</h2>
+            <p style="margin-bottom: 2rem; color: var(--text-muted);">We typically reply within 2 hours.</p>
+            
+            <form>
+                <label>Full Name</label>
+                <input type="text" placeholder="John Doe">
+                
+                <label>Email Address</label>
+                <input type="email" placeholder="john@example.com">
+                
+                <label>Message</label>
+                <textarea rows="5" placeholder="How can we help you today?" style="width: 100%; padding: 0.75rem; border: 2px solid #e2e8f0; border-radius: 8px; margin-bottom: 1.5rem;"></textarea>
+                
+                <button type="button" onclick="alert('Message sent! (Demo only)')">Send Message</button>
+            </form>
+        </div>
+
+        <!-- Right Column: Info -->
+        <div style="background: var(--bg-color); padding: 2rem; border-radius: 16px;">
+            <h3>Contact Information</h3>
+            <div style="margin-bottom: 1.5rem;">
+                <p style="font-weight: 600; color: var(--primary); margin-bottom: 0.5rem;">Address</p>
+                <p>123 Education Lane, Knowledge City<br>Bangalore, KA 560001</p>
+            </div>
+            
+            <div style="margin-bottom: 1.5rem;">
+                <p style="font-weight: 600; color: var(--primary); margin-bottom: 0.5rem;">Email</p>
+                <p>support@edumanager.com</p>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+                <p style="font-weight: 600; color: var(--primary); margin-bottom: 0.5rem;">Phone</p>
+                <p>+91 98765 43210</p>
+            </div>
+
+            <div style="margin-top: 2rem;">
+                <p style="font-weight: 600;">Follow us</p>
+                <div style="font-size: 1.5rem; display: flex; gap: 1rem; color: var(--text-muted);">
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-facebook"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-linkedin"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

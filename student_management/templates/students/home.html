@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="hero">
+    <h1>Welcome to EduManager</h1>
+    <p>Empowering institutions with seamless student data management. Organize, track, and succeed with our premium platform.</p>
+    {% if user.is_authenticated %}
+        <a href="{% url 'list_students' %}" class="btn-cta">Go to Dashboard</a>
+    {% else %}
+        <a href="{% url 'login' %}" class="btn-cta">Get Started</a>
+    {% endif %}
+</div>
+
+<div class="container" style="text-align: center;">
+    <h2>Why Choose Us?</h2>
+    <div class="card-container">
+        <div class="student-card" style="padding: 2rem;">
+            <i class="fas fa-bolt" style="font-size: 3rem; color: #f59e0b; margin-bottom: 1rem;"></i>
+            <h3>Fast & Secure</h3>
+            <p>Lightning fast performance with enterprise-grade security.</p>
+        </div>
+        <div class="student-card" style="padding: 2rem;">
+            <i class="fas fa-users" style="font-size: 3rem; color: #3b82f6; margin-bottom: 1rem;"></i>
+            <h3>Easy Management</h3>
+            <p>Intuitive interface to manage thousands of students effortlessly.</p>
+        </div>
+        <div class="student-card" style="padding: 2rem;">
+            <i class="fas fa-chart-line" style="font-size: 3rem; color: #10b981; margin-bottom: 1rem;"></i>
+            <h3>Analytics (Coming Soon)</h3>
+            <p>Gain insights into student performance and demographics.</p>
+        </div>
+    <div class="card-container" style="justify-content: center;">
+        <div class="student-card" style="padding: 2rem; text-align: center;">
+            <div style="font-size: 3rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem;">50+</div>
+            <p>Trusted Institutions</p>
+        </div>
+        <div class="student-card" style="padding: 2rem; text-align: center;">
+            <div style="font-size: 3rem; font-weight: 700; color: var(--secondary); margin-bottom: 0.5rem;">10k+</div>
+            <p>Students Managed</p>
+        </div>
+        <div class="student-card" style="padding: 2rem; text-align: center;">
+            <div style="font-size: 3rem; font-weight: 700; color: #10b981; margin-bottom: 0.5rem;">99.9%</div>
+            <p>Uptime Guarantee</p>
+        </div>
+    </div>
+
+    <!-- Testimonials -->
+    <div style="margin-top: 5rem;">
+        <h2>What People Say</h2>
+        <div class="card-container">
+            <div class="student-card" style="padding: 2rem; font-style: italic;">
+                <p>"EduManager transformed how we handle student records. The UI is beautiful and easy to use."</p>
+                <div style="margin-top: 1rem; display: flex; align-items: center; gap: 1rem;">
+                    <div style="width: 40px; height: 40px; background: #cbd5e1; border-radius: 50%;"></div>
+                    <div>
+                        <strong style="display: block; font-style: normal;">Jane Doe</strong>
+                        <span style="font-size: 0.9rem; color: var(--text-muted); font-style: normal;">Principal, West High</span>
+                    </div>
+                </div>
+            </div>
+            <div class="student-card" style="padding: 2rem; font-style: italic;">
+                <p>"The best student management software we have used in 10 years. Highly recommended!"</p>
+                <div style="margin-top: 1rem; display: flex; align-items: center; gap: 1rem;">
+                    <div style="width: 40px; height: 40px; background: #cbd5e1; border-radius: 50%;"></div>
+                    <div>
+                        <strong style="display: block; font-style: normal;">John Smith</strong>
+                        <span style="font-size: 0.9rem; color: var(--text-muted); font-style: normal;">Admin, Tech University</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <div style="margin-top: 6rem; background: var(--primary); color: white; padding: 4rem; border-radius: 20px; text-align: center; box-shadow: 0 20px 40px rgba(79, 70, 229, 0.3);">
+        <h2 style="color: white; margin-bottom: 1rem;">Ready to modernize your institution?</h2>
+        <p style="margin-bottom: 2rem; opacity: 0.9;">Join thousands of satisfied educators today.</p>
+        <a href="{% url 'register' %}" class="btn-cta" style="color: var(--primary);">Get Started Now</a>
+    </div>
+
+</div>
+{% endblock %}

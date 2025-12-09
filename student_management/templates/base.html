@@ -1,0 +1,97 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Student Management{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <a href="{% url 'home' %}"><i class="fas fa-graduation-cap"></i> EduManager</a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'list_students' %}">Students</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'todo_list' %}">My Tasks</a></li>
+            {% endif %}
+            <li><a href="{% url 'contact' %}">Contact</a></li>
+        </ul>
+        <div class="auth-links">
+            {% if user.is_authenticated %}
+                <span>Hi, {{ user.username }}</span>
+                <a href="{% url 'admin:index' %}" class="btn-sm"><i class="fas fa-cog"></i> Admin</a>
+                <form action="{% url 'logout' %}" method="post" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn-logout">Logout</button>
+                </form>
+            {% else %}
+                <a href="{% url 'login' %}" class="btn-login">Login</a>
+                <a href="{% url 'register' %}" class="btn-sm" style="background: white; color: var(--primary); border: 1px solid var(--primary);">Register</a>
+            {% endif %}
+        </div>
+    </nav>
+
+    <div class="main-content">
+        {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                <div class="alert {{ message.tags }}">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+        
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <footer class="footer" style="padding: 4rem 1rem; background: #0f172a; color: #94a3b8; margin-top: auto;">
+        <div class="container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; text-align: left;">
+            <div>
+                <h3 style="color: white; margin-bottom: 1rem;">EduManager</h3>
+                <p>Empowering the next generation of educational institutions with cutting-edge technology.</p>
+                <div style="display: flex; gap: 1rem; margin-top: 1rem; font-size: 1.2rem;">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 style="color: white; margin-bottom: 1rem;">Company</h4>
+                <ul style="list-style: none; padding: 0; line-height: 2;">
+                    <li><a href="{% url 'about' %}">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="{% url 'contact' %}">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="color: white; margin-bottom: 1rem;">Legal</h4>
+                <ul style="list-style: none; padding: 0; line-height: 2;">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Cookie Policy</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="color: white; margin-bottom: 1rem;">Newsletter</h4>
+                <p>Subscribe to our newsletter for updates.</p>
+                <form style="display: flex; gap: 0.5rem; margin-top: 1rem;">
+                    <input type="email" placeholder="Email" style="padding: 0.5rem; border-radius: 4px; border: none; width: 100%; margin:0;">
+                    <button style="padding: 0.5rem 1rem; background: var(--primary); border: none; border-radius: 4px; color: white;">Go</button>
+                </form>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 4rem; padding-top: 2rem; border-top: 1px solid #1e293b;">
+            <p>&copy; {% now "Y" %} EduManager Inc. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

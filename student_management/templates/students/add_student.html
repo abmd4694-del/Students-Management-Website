@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="form-page">
+    <h2>Add New Student</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        <!-- Render form fields manually or loop, for better control with CSS if needed, 
+             but default Django rendering usually works if styled via CSS selectors targeting 'input' -->
+        {{ form.as_p }}
+        
+        <button type="submit">Save Student</button>
+    </form>
+    <div style="text-align: center; margin-top: 1rem;">
+        <a href="{% url 'list_students' %}" style="color: var(--text-muted);">Cancel</a>
+    </div>
+</div>
+{% endblock %}
